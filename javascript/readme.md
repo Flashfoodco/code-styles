@@ -1,5 +1,7 @@
 # JavaScript
 
+> Code style for JavaScript and TypeScript
+
 ## Installation
 
 ```
@@ -17,7 +19,8 @@ npm install --save-dev prettier-eslint-cli @flashfoodco/javascript-style
   "prettier": "@flashfoodco/javascript-style/prettier",
   "eslint": {
     "extends": [
-      "@flashfoodco/javascript-style"
+      "@flashfoodco/javascript-style",            // JavaScript
+      "@flashfoodco/javascript-style/typescript"  // TypeScript
     ]
   }
 }
