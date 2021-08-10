@@ -5,7 +5,7 @@
 ## Installation
 
 ```
-npm install --save-dev prettier-eslint-cli @flashfoodco/javascript-style
+npm install --save-dev eslint prettier @flashfoodco/javascript-style
 ```
 
 ### Configure Style
@@ -14,7 +14,7 @@ npm install --save-dev prettier-eslint-cli @flashfoodco/javascript-style
 // package.json
 {
   "scripts": {
-    "lint": "npx prettier-eslint-cli <files>"
+    "lint": "npx @flashfoodco/javascript-style <files>"
   },
   "prettier": "@flashfoodco/javascript-style/prettier",
   "eslint": {
