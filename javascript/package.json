@@ -8,10 +8,34 @@
     "./typescript": "./eslint/typescript.js",
     "./prettier": "./prettier/index.js"
   },
+  "scripts": {
+    "prepare": "cd .. && npx husky install javascript/.husky",
+    "lint": "./bin ./(eslint|prettier)/*.js"
+  },
+  "prettier": "./prettier/index.js",
+  "eslintConfig": {
+    "parserOptions": {
+      "ecmaVersion": 2020
+    },
+    "env": {
+      "es6": true,
+      "node": true
+    },
+    "extends": [
+      "./eslint/javascript.js"
+    ]
+  },
+  "lint-staged": {
+    "./(eslint|prettier)/*.js": "./bin"
+  },
   "dependencies": {
     "@typescript-eslint/eslint-plugin": "^4.29.0",
     "@typescript-eslint/parser": "^4.29.0",
     "eslint-config-prettier": "^8.3.0"
+  },
+  "devDependencies": {
+    "husky": "^7.0.1",
+    "lint-staged": "^11.1.2"
   },
   "peerDependencies": {
     "eslint": "^7",
