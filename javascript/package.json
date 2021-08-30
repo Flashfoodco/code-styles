@@ -44,5 +44,8 @@
   "volta": {
     "node": "16.6.1",
     "npm": "7.20.3"
+  },
+  "publishConfig": {
+    "@flashfoodco:registry": "https://npm.pkg.github.com"
   }
 }

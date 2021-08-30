@@ -2,6 +2,26 @@
 
 > Code style for JavaScript and TypeScript
 
+## Prerequisites
+
+This package is deployed to GitHub packages. In order to use it you must take some steps.
+
+Authenticate with GitHub Packages:
+
+```
+npm login --scope=@flashfoodco --registry=https://npm.pkg.github.com
+
+> Username: YOUR GITHUB USERNAME
+> Password: YOUR GITHUB TOKEN
+> Email: PUBLIC-EMAIL-ADDRESS
+```
+
+Create a `.npmrc` file in the repo you want to use this package and add this line:
+
+```
+@flashfoodco:registry=https://npm.pkg.github.com
+```
+
 ## Installation
 
 ```
