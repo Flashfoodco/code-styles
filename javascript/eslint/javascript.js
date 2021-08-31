@@ -4,6 +4,7 @@ module.exports = {
     {
       files: ['**/*.{js,jsx}'],
       extends: ['eslint:recommended', 'prettier'],
+      rules: {},
     },
   ],
 };
