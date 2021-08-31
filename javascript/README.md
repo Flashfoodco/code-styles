@@ -49,3 +49,10 @@ npm install --save-dev eslint prettier @flashfoodco/javascript-style
 ### Setup Husky Hooks
 
 It is recommended to use `lint-staged` with `husky` hooks to lint staged changes before commits automatically.
+
+See: https://typicode.github.io/husky/#/?id=usage
+
+
+## Contributing
+
+ESLint configurations are split up into JavaScript and TypeScript specific files. Both extend from the `_common.js` file, so any shared configs could go there.
