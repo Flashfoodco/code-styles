@@ -1,0 +1,51 @@
+{
+  "name": "@flashfoodco/javascript-style",
+  "version": "1.0.0",
+  "main": "eslint/javascript.js",
+  "bin": "bin",
+  "exports": {
+    "./": "./eslint/javascript.js",
+    "./typescript": "./eslint/typescript.js",
+    "./prettier": "./prettier/index.js"
+  },
+  "scripts": {
+    "prepare": "cd .. && npx husky install javascript/.husky",
+    "lint": "./bin ./(eslint|prettier)/*.js"
+  },
+  "prettier": "./prettier/index.js",
+  "eslintConfig": {
+    "parserOptions": {
+      "ecmaVersion": 2020
+    },
+    "env": {
+      "es6": true,
+      "node": true
+    },
+    "extends": [
+      "./eslint/javascript.js"
+    ]
+  },
+  "lint-staged": {
+    "./(eslint|prettier)/*.js": "./bin"
+  },
+  "dependencies": {
+    "@typescript-eslint/eslint-plugin": "^4.29.0",
+    "@typescript-eslint/parser": "^4.29.0",
+    "eslint-config-prettier": "^8.3.0"
+  },
+  "devDependencies": {
+    "husky": "^7.0.1",
+    "lint-staged": "^11.1.2"
+  },
+  "peerDependencies": {
+    "eslint": "^7",
+    "prettier": "^2"
+  },
+  "volta": {
+    "node": "16.6.1",
+    "npm": "7.20.3"
+  },
+  "publishConfig": {
+    "@flashfoodco:registry": "https://npm.pkg.github.com"
+  }
+}
