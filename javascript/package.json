@@ -45,7 +45,11 @@
     "node": "16.6.1",
     "npm": "7.20.3"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Flashfoodco/code-styles"
+  },
   "publishConfig": {
-    "@flashfoodco:registry": "https://npm.pkg.github.com"
+    "registry": "https://npm.pkg.github.com/@Flashfoodco"
   }
 }
