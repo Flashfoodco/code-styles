@@ -33,16 +33,13 @@ npm install --save-dev eslint prettier @flashfoodco/javascript-style
 ```jsonc
 // package.json
 {
-  "scripts": {
-    "lint": "npx @flashfoodco/javascript-style <files>"
-  },
   "prettier": "@flashfoodco/javascript-style/prettier",
   "eslintConfig": {
     "extends": [
-      "@flashfoodco/javascript-style", // JavaScript
-      "@flashfoodco/javascript-style/typescript" // TypeScript
+      "./node_modules/@flashfoodco/javascript-style/eslint/javascript.js", // JavaScript
+      "./node_modules/@flashfoodco/javascript-style/eslint/typescript.js" // TypeScript
     ]
-  }
+  },
 }
 ```
 
@@ -52,6 +49,23 @@ It is recommended to use `lint-staged` with `husky` hooks to lint staged changes
 
 See: https://typicode.github.io/husky/#/?id=usage
 
+```jsonc
+// package.json
+{
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "**/*.(js|ts)": [
+      "npx prettier --write",
+      "npx eslint --fix"
+    ]
+  },
+}
+
+```
 
 ## Contributing
 
