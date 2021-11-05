@@ -4,7 +4,9 @@ module.exports = {
     {
       files: ['**/*.{js,jsx}'],
       extends: ['eslint:recommended', 'prettier'],
-      rules: {},
+      rules: {
+        'no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
+      },
     },
   ],
 };
