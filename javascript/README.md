@@ -28,31 +28,62 @@ Create a `.npmrc` file in the repo you want to use this package and add this lin
 npm install --save-dev eslint prettier @flashfoodco/javascript-style
 ```
 
-### Configure Style
+## Configure Style
 
 ```jsonc
 // package.json
 {
   "scripts": {
-    "lint": "npx @flashfoodco/javascript-style <files>"
+    "style:eslint": "eslint '<files>'",
+    "style:prettier": "prettier '<files>'"
   },
   "prettier": "@flashfoodco/javascript-style/prettier",
   "eslintConfig": {
     "extends": [
-      "@flashfoodco/javascript-style", // JavaScript
-      "@flashfoodco/javascript-style/typescript" // TypeScript
+      "./node_modules/@flashfoodco/javascript-style/eslint/javascript.js", // JavaScript
+      "./node_modules/@flashfoodco/javascript-style/eslint/typescript.js" // TypeScript
     ]
-  }
+  },
 }
 ```
 
-### Setup Husky Hooks
+## Command Line
+
+```sh
+npx eslint '<files>' --fix
+npx prettier '<files>' --write
+```
+
+See [ESLint CLI](https://eslint.org/docs/user-guide/command-line-interface) and [Prettier CLI](https://prettier.io/docs/en/cli.html).
+
+## Setup Husky Hooks
 
 It is recommended to use `lint-staged` with `husky` hooks to lint staged changes before commits automatically.
 
 See: https://typicode.github.io/husky/#/?id=usage
 
+```jsonc
+// package.json
+{
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "**/*.(js|ts)": [
+      "npx prettier --write",
+      "npx eslint --fix"
+    ]
+  },
+}
+
+```
 
 ## Contributing
 
 ESLint configurations are split up into JavaScript and TypeScript specific files. Both extend from the `_common.js` file, so any shared configs could go there.
+
+## Publishing
+
+Increment the version inside `package.json` and merge a PR into the trunk branch. Github actions will automatically publish to the GPR.

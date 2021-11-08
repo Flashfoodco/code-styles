@@ -1,8 +1,7 @@
 {
   "name": "@flashfoodco/javascript-style",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "eslint/javascript.js",
-  "bin": "bin",
   "exports": {
     "./": "./eslint/javascript.js",
     "./typescript": "./eslint/typescript.js",
@@ -10,7 +9,9 @@
   },
   "scripts": {
     "prepare": "cd .. && npx husky install javascript/.husky",
-    "lint": "./bin ./(eslint|prettier)/*.js"
+    "lint": "npm run prettier && npm run eslint",
+    "eslint": "eslint --fix eslint/*.js prettier/*.js",
+    "prettier": "prettier --write eslint/*.js prettier/*.js"
   },
   "prettier": "./prettier/index.js",
   "eslintConfig": {
@@ -22,11 +23,15 @@
       "node": true
     },
     "extends": [
-      "./eslint/javascript.js"
+      "./eslint/javascript.js",
+      "./eslint/typescript.js"
     ]
   },
   "lint-staged": {
-    "./(eslint|prettier)/*.js": "./bin"
+    "./(eslint|prettier)/*.js": [
+      "npx prettier --write",
+      "npx eslint --fix"
+    ]
   },
   "dependencies": {
     "@typescript-eslint/eslint-plugin": "^4.29.0",
@@ -34,6 +39,7 @@
     "eslint-config-prettier": "^8.3.0"
   },
   "devDependencies": {
+    "eslint-plugin-node": "^11.1.0",
     "husky": "^7.0.1",
     "lint-staged": "^11.1.2"
   },
