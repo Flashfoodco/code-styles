@@ -1,22 +1,22 @@
 {
   "name": "@flashfoodco/javascript-style",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "main": "eslint/javascript.js",
   "exports": {
-    "./": "./eslint/javascript.js",
+    "./javascript": "./eslint/javascript.js",
     "./typescript": "./eslint/typescript.js",
     "./prettier": "./prettier/index.js"
   },
   "scripts": {
-    "prepare": "cd .. && npx husky install javascript/.husky",
-    "lint": "npm run prettier && npm run eslint",
     "eslint": "eslint --fix eslint/*.js prettier/*.js",
+    "lint": "npm run prettier && npm run eslint",
+    "prepare": "cd .. && npx husky install javascript/.husky",
     "prettier": "prettier --write eslint/*.js prettier/*.js"
   },
   "prettier": "./prettier/index.js",
   "eslintConfig": {
     "parserOptions": {
-      "ecmaVersion": 2020
+      "ecmaVersion": 2022
     },
     "env": {
       "es6": true,
@@ -34,22 +34,25 @@
     ]
   },
   "dependencies": {
-    "@typescript-eslint/eslint-plugin": "^4.29.0",
-    "@typescript-eslint/parser": "^4.29.0",
-    "eslint-config-prettier": "^8.3.0"
   },
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.29.0",
+    "@typescript-eslint/parser": "^5.29.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-html": "^6.2.0",
+    "eslint-plugin-jsdoc": "^39.3.3",
+    "eslint-plugin-markdown": "^2.2.1",
     "eslint-plugin-node": "^11.1.0",
-    "husky": "^7.0.1",
-    "lint-staged": "^11.1.2"
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.2"
   },
   "peerDependencies": {
-    "eslint": "^7",
-    "prettier": "^2"
+    "eslint": "^8.18.0",
+    "prettier": "^2.7.1"
   },
   "volta": {
     "node": "16.6.1",
-    "npm": "7.20.3"
+    "npm": "8.10.0"
   },
   "repository": {
     "type": "git",
