@@ -1,7 +1,22 @@
 {
   "name": "@flashfoodco/javascript-style",
   "version": "1.1.0",
+  "description": "Shared style and formatting configuration",
   "main": "eslint/javascript.js",
+  "private": true,
+  "license": "UNLICENSED",
+  "author": "Flashfood <info@flashfood.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Flashfoodco/code-styles"
+  },
+  "engines": {
+    "node": "^18.14.0",
+    "npm": "^9.3.1"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/@Flashfoodco"
+  },
   "exports": {
     "./": "./eslint/javascript.js",
     "./typescript": "./eslint/typescript.js",
@@ -12,6 +27,20 @@
     "lint": "npm run prettier && npm run eslint",
     "eslint": "eslint --fix eslint/*.js prettier/*.js",
     "prettier": "prettier --write eslint/*.js prettier/*.js"
+  },
+  "dependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.53.0",
+    "@typescript-eslint/parser": "^5.53.0",
+    "eslint-config-prettier": "^8.6.0"
+  },
+  "devDependencies": {
+    "eslint-plugin-node": "^11.1.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.1.2"
+  },
+  "peerDependencies": {
+    "eslint": "^7",
+    "prettier": "^2"
   },
   "prettier": "./prettier/index.js",
   "eslintConfig": {
@@ -33,29 +62,8 @@
       "npx eslint --fix"
     ]
   },
-  "dependencies": {
-    "@typescript-eslint/eslint-plugin": "^5.53.0",
-    "@typescript-eslint/parser": "^5.53.0",
-    "eslint-config-prettier": "^8.6.0"
-  },
-  "devDependencies": {
-    "eslint-plugin-node": "^11.1.0",
-    "husky": "^8.0.3",
-    "lint-staged": "^13.1.2"
-  },
-  "peerDependencies": {
-    "eslint": "^7",
-    "prettier": "^2"
-  },
   "volta": {
     "node": "18.14.0",
     "npm": "9.3.1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/Flashfoodco/code-styles"
-  },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/@Flashfoodco"
   }
 }
