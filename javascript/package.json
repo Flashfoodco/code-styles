@@ -3,7 +3,6 @@
   "version": "1.1.0",
   "description": "Shared style and formatting configuration",
   "main": "eslint/javascript.js",
-  "private": true,
   "license": "UNLICENSED",
   "author": "Flashfood <info@flashfood.com>",
   "repository": {
